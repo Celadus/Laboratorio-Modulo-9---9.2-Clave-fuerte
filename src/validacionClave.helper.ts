@@ -24,8 +24,13 @@ export const tieneMayusculasYMinusculas = (clave: string): ValidacionClave => {
 };
 
 // La clave debe de tener al menos un número.
-const tieneNumeros = (clave: string): ValidacionClave => {
-  // ...
+export const tieneNumeros = (clave: string): ValidacionClave => {
+    const tieneNumero = numeros.split("").some((char) => clave.includes(char));
+    if (tieneNumero) {
+        return { esValida: true };
+    } else {
+        return { esValida: false, error: "La clave debe de tener al menos un número." };
+    }
 };
 
 // La clave debe de tener al menos un caracter especial.
