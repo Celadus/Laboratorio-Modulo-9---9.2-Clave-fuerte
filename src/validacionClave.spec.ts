@@ -1,5 +1,7 @@
 import { tieneMayusculasYMinusculas } from "./validacionClave.helper";
 
+// La clave debe de tener mayúsculas y minúsculas.
+
 describe("tieneMayusculasYMinusculas", () => {
   it("debe devolver { esValida: false, error: 'La clave debe de tener mayúsculas y minúsculas.' } si la contraseña no contiene tanto mayúsculas como minúsculas", () => {
     // Arrange
