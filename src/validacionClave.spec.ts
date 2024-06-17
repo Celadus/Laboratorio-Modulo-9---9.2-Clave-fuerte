@@ -7,7 +7,7 @@ import {
   tienePalabrasComunes,
 } from "./validacionClave.helper";
 
-import { validarClave } from "./validacionDeClave";
+import { validarClave } from "./validacionClave";
 
 // La clave debe de tener mayúsculas y minúsculas.
 describe("tieneMayusculasYMinusculas", () => {
