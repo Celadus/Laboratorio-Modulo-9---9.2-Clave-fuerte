@@ -7,6 +7,8 @@ import {
   tienePalabrasComunes,
 } from "./validacionClave.helper";
 
+import { validarClave } from "./validacionDeClave";
+
 // La clave debe de tener mayúsculas y minúsculas.
 describe("tieneMayusculasYMinusculas", () => {
   it("debe devolver { esValida: false, error: 'La clave debe de tener mayúsculas y minúsculas.' } si la contraseña no contiene tanto mayúsculas como minúsculas", () => {
@@ -201,7 +203,7 @@ describe("tienePalabrasComunes", () => {
     // Arrange
     const clave = "Password123!";
     const commonPasswords = [
-"password",
+      "password",
       "123456",
       "qwerty",
       "admin",
@@ -258,5 +260,33 @@ describe("tienePalabrasComunes", () => {
     const resultado = tienePalabrasComunes(clave, commonPasswords);
     // Assert
     expect(resultado).toEqual({ esValida: true });
-    });
-    });
+  });
+});
+
+// Validacion de la clave
+describe("validarClave", () => {
+  it("debe devolver { esValida: true } si la clave cumple con todas las validaciones", () => {
+    // Arrange
+    const nombreUsuario = "usuario";
+    const clave = "Password123!";
+    const commonPasswords = ["password", "123456"];
+    // Act
+    const resultado = validarClave(nombreUsuario, clave, commonPasswords);
+    // Assert
+    expect(resultado).toEqual({ esValida: true });
+  });
+
+  it("debe devolver { esValida: false} si alguna de las validaciones falla", () => {
+    // Arrange
+    const nombreUsuario = "usuario";
+    const clave = "Password123";
+    const commonPasswords = ["password", "123456"];
+    // Act
+    const resultado = validarClave(nombreUsuario, clave, commonPasswords);
+    // Assert
+    expect(resultado.esValida).toBe(false);
+    expect(resultado.error).toBe(
+      "La clave debe de tener al menos un caracter especial."
+    );
+  });
+});
