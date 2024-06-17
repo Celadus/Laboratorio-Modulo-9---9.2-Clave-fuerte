@@ -1,3 +1,5 @@
+import "./style.css";
+
 export interface ValidacionClave {
   esValida: boolean;
   error?: string;
