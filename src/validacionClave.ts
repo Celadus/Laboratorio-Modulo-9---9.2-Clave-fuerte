@@ -1,4 +1,4 @@
-import { ValidacionClave } from "./modelo.js";
+import { ValidacionClave } from "./modelo";
 import {
   tieneMayusculasYMinusculas,
   tieneNumeros,
@@ -6,7 +6,7 @@ import {
   tieneLongitudMinima,
   tieneNombreUsuario,
   tienePalabrasComunes,
-} from "./validacionClave.helper.js";
+} from "./validacionClave.helper";
 
 // Validacion de la clave
 export const validarClave = (
@@ -23,7 +23,7 @@ export const validarClave = (
     tieneCaracteresEspeciales(clave),
   ];
   const validacionFallida = validaciones.find(
-    (validacion) => !validacion.esValida
+    (validacion: ValidacionClave) => !validacion.esValida
   );
   if (validacionFallida) {
     return validacionFallida;

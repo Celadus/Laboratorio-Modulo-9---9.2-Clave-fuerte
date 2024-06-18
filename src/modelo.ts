@@ -1,4 +1,5 @@
 import "./style.css";
+import { validarClave } from "./validacionClave";
 
 export interface ValidacionClave {
   esValida: boolean;
@@ -59,3 +60,15 @@ export const commonPasswords: string[] = [
   "password12",
   "1234567890",
 ];
+
+//console.log de las diferentes posibilidades
+console.log(validarClave("nombreUsuario", "Usuario123*", commonPasswords));
+console.log(validarClave("nombreUsuario", "usuario123*", commonPasswords));
+console.log(validarClave("nombreUsuario", "Usuario*", commonPasswords));
+console.log(validarClave("nombreUsuario", "Usuario123", commonPasswords));
+console.log(
+  validarClave("nombreUsuario", "nombreUsuario123*", commonPasswords)
+);
+console.log(validarClave("nombreUsuario", "Password123*", commonPasswords));
+console.log(validarClave("", "Password123*", commonPasswords));
+console.log(validarClave("nombreUsuario", "", commonPasswords));
