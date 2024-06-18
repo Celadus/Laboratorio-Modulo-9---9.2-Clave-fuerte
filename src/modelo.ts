@@ -12,7 +12,7 @@ export const commonPasswords: string[] = [
   "qwerty",
   "admin",
   "letmein",
-  "welcome",
+  "Welcome1*",
   "monkey",
   "sunshine",
   "password1",
@@ -53,7 +53,7 @@ export const commonPasswords: string[] = [
   "flower",
   "qwertyuiop",
   "admin123",
-  "iloveyou123",
+  "Iloveyou123!",
   "welcome1",
   "monkey123",
   "sunshine1",
@@ -61,14 +61,23 @@ export const commonPasswords: string[] = [
   "1234567890",
 ];
 
-//console.log de las diferentes posibilidades
-console.log(validarClave("nombreUsuario", "Usuario123*", commonPasswords));
-console.log(validarClave("nombreUsuario", "usuario123*", commonPasswords));
-console.log(validarClave("nombreUsuario", "Usuario*", commonPasswords));
-console.log(validarClave("nombreUsuario", "Usuario123", commonPasswords));
-console.log(
-  validarClave("nombreUsuario", "nombreUsuario123*", commonPasswords)
-);
-console.log(validarClave("nombreUsuario", "Password123*", commonPasswords));
-console.log(validarClave("", "Password123*", commonPasswords));
-console.log(validarClave("nombreUsuario", "", commonPasswords));
+//console.log de el caso que La clave debe de tener mayúsculas y minúsculas.
+console.log(validarClave("usuario", "clave", commonPasswords));
+
+//console.log de el caso que La clave debe de tener al menos un número.
+console.log(validarClave("usuario", "Clave", commonPasswords));
+
+//console.log de el caso que La clave debe de tener al menos un caracter especial.
+console.log(validarClave("usuario", "Clave124", commonPasswords));
+
+//console.log de el caso que La clave debe de tener al menos 8 caracteres.
+console.log(validarClave("usuario", "Clave1*", commonPasswords));
+
+//console.log de el caso que La clave no deve tener el nombre de usuario.
+console.log(validarClave("Usuario76!", "Usuario76!", commonPasswords));
+
+//console.log de el caso que La clave no deve tener palabras comunes.
+console.log(validarClave("usuario", "Iloveyou123!", commonPasswords));
+
+//console.log de el caso que La clave es valida.
+console.log(validarClave("usuario", "Clave1*!", commonPasswords));
